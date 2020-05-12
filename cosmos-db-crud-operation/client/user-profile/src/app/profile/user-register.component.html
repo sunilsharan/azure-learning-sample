@@ -1,0 +1,61 @@
+<div class='card'>
+    <div class='card-header'>
+        <h3>{{pageTitle}}</h3>
+    </div>
+    <form class="text-center border border-light p-5" [formGroup]="userForm" (ngSubmit)="submitForm()" novalidate>
+        <!-- <input type="hidden" >{{id}}</input> -->
+        <div class="form-row mb-3">
+            <div class="col">
+                <!-- First name -->
+                <input type="text" formControlName="firstName" class="form-control" placeholder="First name">
+            </div>
+            <div class="error"
+                *ngIf="userForm.get('firstName').hasError('required') && userForm.get('firstName').touched">
+                Name is required
+            </div>
+            <div class="error"
+                *ngIf="userForm.get('firstName').hasError('minlength') && userForm.get('firstName').touched">
+                Minimum of 2 characters
+            </div>
+            <div class="col">
+                <!-- Last name -->
+                <input type="text" formControlName="lastName" class="form-control" placeholder="Last name">
+            </div>
+        </div>
+        <div class="form-row mb-3">
+            <div class="col">
+                <input type="email" formControlName="email" class="form-control" placeholder="E-mail">
+            </div>
+            <div class="col">
+                <input type="date" placeholder="Date of birth" class="form-control" formControlName="dob">
+            </div>
+        </div>
+        <!-- E-mail -->
+
+
+        <div formGroupName="address">
+            <div class="form-row mb-4">
+                <div class="col">
+                    <input type="text" placeholder="Address Line 1" class="form-control" formControlName="addressLine1">
+                </div>
+                <div class="col">
+                    <input type="text" placeholder="Address Line 2" class="form-control" formControlName="addressLine2">
+                </div>
+            </div>
+
+            <div class="form-row mb-4">
+                <input type="text" placeholder="City" class="form-control" formControlName="city">
+
+            </div>
+            <div class="form-row mb-4">
+                <input type="text" placeholder="State" class="form-control" formControlName="state">
+            </div>
+            <div class="form-row mb-4">
+                <input type="text" placeholder="Postal Code" class="form-control" formControlName="postalcode">
+            </div>
+
+
+        </div>
+        <button type="submit"  class="btn btn-primary">{{buttonText}}</button>
+    </form>
+</div>

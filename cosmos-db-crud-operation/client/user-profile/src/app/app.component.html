@@ -1,0 +1,21 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container" >
+  <nav class='navbar navbar-expand navbar-light bg-dark'>
+    <a class='navbar-brand'></a>
+    <ul class='nav nav-pills' style="font-size: large;" >
+       <li><a class='nav-link' [routerLink]="['/welcome']">Home</a></li>
+      <li><a class='nav-link' [routerLink]="['/users']">Users</a></li>
+    </ul>
+  </nav>
+  <div class='content' >
+    <router-outlet></router-outlet>
+  </div>
+  <footer class="navbar navbar-expand navbar-light bg-dark text-center" >
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-2 footer-copyright" style="color: aliceblue; font-size: medium;">© 2020 Copyright:
+      <a href="https://sunil-sharan.com/" style="color: aliceblue;"> Open Source</a>
+    <!-- Copyright -->
+    </div>
+  </footer>
+</div>

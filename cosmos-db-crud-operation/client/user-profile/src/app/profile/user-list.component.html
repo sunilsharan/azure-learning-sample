@@ -1,0 +1,58 @@
+<div class='card border-primary mb-3'>
+  <div class='card-header'>
+    <h3>{{pageTitle}}</h3>
+  </div>
+  <div class='card-body '>
+    
+    <div class='table-responsive'>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th class="hidden">Id</th>
+            <th scope="col" sortable="name">First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>DOB</th>
+            <th>Address</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let user of users'>
+            <td class="hidden">{{user.Id}}</td>
+            <td>
+              {{user.firstName}}
+            </td>
+            <td>
+              {{user.lastName}}
+            </td>
+            <td>
+              {{user.email}}
+            </td>
+            <td>
+              {{user.dob | date}}
+            </td>
+            <td>
+              {{user.address.addressLine1}}, {{user.address.city}},{{user.address.state}}-{{user.address.postalcode}}
+            </td>
+            <td>
+              <span class="table-remove">
+                <button type="button" class="btn btn-default btn-primary" (click)="onEdit(user)">
+                  <span class="glyphicon glyphicon-pencil"></span>  
+                </button>
+                &nbsp;
+                <button type="button" class="btn btn-danger" (click)="onDeleteUser(user)">
+                  <i class="glyphicon glyphicon-trash">
+                  </i></button>
+              </span>
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card-footer bg-transparent border-success">
+    <button type="button" (click)="onButtonClick()" class="btn btn-primary">New User Register</button>
+  </div>
+</div>
