@@ -1,4 +1,4 @@
-# azure-learning-sample
+# Crud operation Cosmos DB and Azure .NET Core DSK
 Open repository for azure object model learner
 
 This is a smaple crud application to demonstrate Add, Edit, Update and Delete data stored in Cosmos DB. 
