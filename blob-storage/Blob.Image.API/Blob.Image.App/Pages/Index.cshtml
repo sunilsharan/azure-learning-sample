@@ -1,0 +1,46 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Photo Gallery";
+}
+
+<div class="bg-dark text-light">
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1"> Image Gallery</span>
+    </nav>
+    <div class="mx-5 mb-5">
+        <div class="card">
+            <div class="card-header text-dark">
+                Upload a new image
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" asp-for="Upload">
+                        <label class="custom-file-label">Choose image</label>
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Upload</button>
+                </form>
+            </div>
+        </div>
+        <h1 class="display-1">
+            Images
+        </h1>
+        @if (Model.ImageList.Count > 0)
+        {
+            <div class="card-columns">
+                @foreach (string imageUrl in Model.ImageList)
+                {
+                    <div class="card">
+                        <img src="@imageUrl" class="img-fluid" />
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-warning" role="alert">
+                No Images Found
+            </div>
+        }
+    </div>
